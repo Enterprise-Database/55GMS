@@ -368,9 +368,7 @@ function shutdown(signal) {
 process.on("SIGTERM", () => shutdown("SIGTERM"));
 process.on("SIGINT", () => shutdown("SIGINT"));
 
-server.listen({
-  port: process.env.PORT || 8080,
-});
+server.listen(process.env.PORT || 8080);
 
 server.on("error", (error) => {
   console.error("Server error:", error);

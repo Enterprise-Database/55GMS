@@ -1,24 +1,20 @@
-window.addEventListener("load", (event) => {
-  const gameContainer = document.getElementById("game-container");
-  fetch("/assets/json/load/packs.json")
-    .then((response) => response.json())
-    .then((apps) => {
-      apps.sort((a, b) => a.name.localeCompare(b.name));
-      apps.forEach(function (game) {
-        let gameHtml;
-        gameHtml = `<div class="game">
-                <a onclick="${
-                  game.alert ? `alert('${game.alert}'); ` : ""
-                }window.location.href='${game.url}';">
-                    <img loading="eager" src="${game.image}">
-                    <p class="text">${game.name}</p>
-                </a>
-              </div>`;
-        gameContainer.insertAdjacentHTML("beforeend", gameHtml);
-      });
-
-      let searchbar = document.querySelector(".searchbar");
-      if (searchbar)
-        searchbar.placeholder = `Click here to search through our ${apps.length} packs!`;
-    });
-});
+{
+  "name": "INFFernandez",
+  "version": "1.0.0",
+  "description": "A website for students in the Houston district",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "sequelize": "^6.37.1",
+    "pg": "^8.11.5",
+    "pg-hstore": "^2.3.4"
+  },
+  "engines": {
+    "node": "22.x"
+  },
+  "author": "Adrian Fernandez",
+  "license": "MIT"
+}
